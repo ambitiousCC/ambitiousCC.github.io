@@ -1,0 +1,594 @@
+<!DOCTYPE html><html lang="en"><head>
+	
+	
+	
+<link rel="stylesheet" href="/css/allinone.min.css">
+
+
+	
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148359894-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-148359894-1');
+	</script>
+	
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>排序算法 | 不羁</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="tool阿琴">
+	<meta name="description" content="所有排序算法整合">
+
+	
+	<meta name="keywords" content="算法">
+	
+
+	
+	<link rel="shortcut icon" href="https://wx1.sbimg.cn/2020/06/06/_20200606194514-mask-transparent.png">
+	<link rel="apple-touch-icon" href="https://wx1.sbimg.cn/2020/06/06/_20200606194514-mask-transparent.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="不羁">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="排序算法 | 不羁">
+	<meta property="og:description" content="所有排序算法整合">
+	<meta property="og:url" content="http://yoursite.com/2020/06/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+
+	
+	<meta property="article:published_time" content="2020-06-10T15:06:00+08:00"> 
+	<meta property="article:author" content="tool阿琴">
+	<meta property="article:published_first" content="不羁, /2020/06/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+	
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header outer" style="z-index: 999">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
+    </div>
+    
+    <div class="search-button">
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    <a class="social-link" title="weibo" href="https://weibo.com/u/5654192209" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1141 1024" xmlns="http://www.w3.org/2000/svg"><path d="M916.48 518.144q27.648 21.504 38.912 51.712t9.216 62.976-14.336 65.536-31.744 59.392q-34.816 48.128-78.848 81.92t-91.136 56.32-94.72 35.328-89.6 18.944-75.264 7.68-51.712 1.536-49.152-2.56-68.096-10.24-78.336-21.504-79.872-36.352-74.24-55.296-59.904-78.848q-16.384-29.696-22.016-63.488t-5.632-86.016q0-22.528 7.68-51.2t27.136-63.488 53.248-75.776 86.016-90.112q51.2-48.128 105.984-85.504t117.248-57.856q28.672-10.24 63.488-11.264t57.344 11.264q10.24 11.264 19.456 23.04t12.288 29.184q3.072 14.336 0.512 27.648t-5.632 26.624-5.12 25.6 2.048 22.528q17.408 2.048 33.792-1.536t31.744-9.216 31.232-11.776 33.28-9.216q27.648-5.12 54.784-4.608t49.152 7.68 36.352 22.016 17.408 38.4q2.048 14.336-2.048 26.624t-8.704 23.04-7.168 22.016 1.536 23.552q3.072 7.168 14.848 13.312t27.136 12.288 32.256 13.312 29.184 16.384zM658.432 836.608q26.624-16.384 53.76-45.056t44.032-64 18.944-75.776-20.48-81.408q-19.456-33.792-47.616-57.344t-62.976-37.376-74.24-19.968-80.384-6.144q-78.848 0-139.776 16.384t-105.472 43.008-72.192 60.416-38.912 68.608q-11.264 33.792-6.656 67.072t20.992 62.976 42.496 53.248 57.856 37.888q58.368 25.6 119.296 32.256t116.224 0.512 100.864-21.504 74.24-33.792zM524.288 513.024q20.48 8.192 38.912 18.432t32.768 27.648q10.24 12.288 17.92 30.72t10.752 39.424 1.536 42.496-9.728 38.912q-8.192 18.432-19.968 37.376t-28.672 35.328-40.448 29.184-57.344 18.944q-61.44 11.264-117.76-11.264t-88.064-74.752q-12.288-39.936-13.312-70.656t16.384-66.56q13.312-27.648 40.448-51.712t62.464-38.912 75.264-17.408 78.848 12.8zM361.472 764.928q37.888 3.072 57.856-18.432t21.504-48.128-15.36-47.616-52.736-16.896q-27.648 3.072-43.008 23.552t-17.408 43.52 9.728 42.496 39.424 21.504zM780.288 6.144q74.752 0 139.776 19.968t113.664 57.856 76.288 92.16 27.648 122.88q0 33.792-16.384 50.688t-35.328 17.408-35.328-14.336-16.384-45.568q0-40.96-22.528-77.824t-59.392-64.512-84.48-43.52-96.768-15.872q-31.744 0-47.104-15.36t-14.336-34.304 18.944-34.304 51.712-15.36zM780.288 169.984q95.232 0 144.384 48.64t49.152 146.944q0 30.72-10.24 43.52t-22.528 11.264-22.528-14.848-10.24-35.84q0-60.416-34.816-96.256t-93.184-35.84q-19.456 0-28.672-10.752t-9.216-23.04 9.728-23.04 28.16-10.752z"/></svg>
+    </a>
+    
+    
+    <a class="social-link" title="github" href="https://github.com/ambitiousCC" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    <a class="social-link" title="facebook" href="https://blog.csdn.net/weixin_43645287" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049 1024"><path d="M1141.351404 39.055942l-28.91333 218.474629c-126.144728-19.927251-251.601043-38.376709-377.75495-27.674187-115.460564 9.802996-227.405635 32.180995-309.124802 122.987208-150.018878 166.696821-68.391499 396.461416 158.252293 437.463272 141.115408 25.52634 283.919721 11.785624 425.448176-8.123269-5.452228 112.440727-5.764308 95.303843-10.674985 205.229569-1.073924 24.057726 4.277337 14.612705-161.648461 31.914809-176.004159 9.004437-351.879815 11.189-520.550085-52.888447C156.545029 905.721534 30.675666 809.16019 5.176863 630.815428c-26.251468-183.595056 48.803865-331.796524 192.516883-446.128091C413.36883 13.098197 790.802521-47.271 1141.351404 39.055942z" fill="#ffffff"/></svg>
+    </a>
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/11225377/#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+    <a class="social-link" title="youtube" href="https://www.youtube.com/channel/UCuSauG2DkfmDWjStlHvBCaQ?view_as=subscriber" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1152 1024" xmlns="http://www.w3.org/2000/svg"><path d="m1099.31 248.166c-12.562-47.3-49.574-84.552-96.568-97.194-85.18-22.972-426.742-22.972-426.742-22.972s-341.56 0-426.742 22.972c-46.994 12.644-84.006 49.894-96.568 97.194-22.824 85.734-22.824 264.61-22.824 264.61s0 178.876 22.824 264.61c12.562 47.3 49.574 83 96.568 95.642 85.182 22.972 426.742 22.972 426.742 22.972s341.56 0 426.742-22.972c46.994-12.642 84.006-48.342 96.568-95.642 22.824-85.734 22.824-264.61 22.824-264.61s0-178.876-22.824-264.61zm-635.02 427.016v-324.812l285.478 162.41z"/></svg>
+    </a>
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-06-10T07:43:27.000Z" itemprop="datePublished">
+                    2020-06-10
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                
+            </section>
+            <h1 class="post-full-title">排序算法</h1>
+        </header>
+        <article class="post-full no-image">
+            
+            <section class="post-full-content">
+                <div id="lightgallery" class="markdown-body">
+                    <p><img alt="0" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7VVJJ.jpg" data-src="https://s1.ax1x.com/2020/06/10/t7VVJJ.jpg"></p>
+<h2 id="博客内容"><a href="#博客内容" class="headerlink" title="博客内容"></a>博客内容</h2><ul>
+<li>解释每一种排序算法思想，对每种排序的代码进行解读</li>
+<li>对比复杂度，稳定性，并列表。</li>
+<li>典型题目分析</li>
+</ul>
+<h2 id="时间复杂度下界"><a href="#时间复杂度下界" class="headerlink" title="时间复杂度下界"></a>时间复杂度下界</h2><ul>
+<li><p>逆序对：i<j,如果A[i]>A[j]，(i,j)即为逆序对，而交换两个相邻元素正好是消去一个逆序对。</p>
+</li>
+<li><p>定理：任意N个不同元素组成的序列平均有N(N-1)/4个逆序对，所以任何以交换相邻两个元素来排序的算法，平均时间复杂度为$O(N^2)$</p>
+</li>
+</ul>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>主要思想：两个for循环，一个元素一个元素进行比较，<strong>是稳定的</strong>。<br><a href="https://imgchr.com/i/t7ECUe" target="_blank" rel="noopener"><img alt="t7ECUe.gif" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7ECUe.gif" data-src="https://s1.ax1x.com/2020/06/10/t7ECUe.gif"></a></p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Bubble_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> P=N<span class="number">-1</span>;P>=<span class="number">0</span>;P--) {</span><br><span class="line">		<span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i<P;i++) {</span><br><span class="line">			<span class="keyword">if</span>(A[i]>A[i+<span class="number">1</span>]) </span><br><span class="line">				Swap(A[i],A[i+<span class="number">1</span>]); <span class="comment">//如果没有被执行，则这个序列本来就有序</span></span><br><span class="line">				flag = <span class="number">1</span>; <span class="comment">//标识发生了交换</span></span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">if</span>(flag==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>最好：开始即有序<br>最坏：正好是逆序，$T=O(N^2)$</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>不断插入就不断地排序，即确保子序列为有序的</p>
+<ol>
+<li>从第二位开始遍历，</li>
+<li>当前数（第一趟是第二位数）与前面的数依次比较，如果前面的数大于当前数，则将这个数放在当前数的位置上，当前数的下标-1，</li>
+<li>重复以上步骤，直到当前数不大于前面的某一个数为止，这时，将当前数，放到这个位置，1-3步就是保证当前数的前面的数都是有序的，内层循环的目的就是将当前数插入到前面的有序序列里</li>
+<li>重复以上3步，直到遍历到最后一位数，并将最后一位数插入到合适的位置，插入排序结束。</li>
+</ol>
+<p><img alt="2" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7krFJ.gif" data-src="https://s1.ax1x.com/2020/06/10/t7krFJ.gif"></p>
+<ul>
+<li>代码<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insertion_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> P=<span class="number">1</span>; P<N; P++) {</span><br><span class="line">		<span class="keyword">int</span> tmp = A[P]; <span class="comment">//摸下一张牌</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=P; i><span class="number">0</span> && A[i<span class="number">-1</span>]>tmp; i--) </span><br><span class="line">			A[i] = A[i<span class="number">-1</span>];</span><br><span class="line">		A[i] = tmp; <span class="comment">//新牌</span></span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<p>最好：只需要摸牌，$T=O(N)$<br>最坏：逆序，$T=O(N^2)$</p>
+<h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><p>从大到小的间隔，来进行多次排序。每次排序都不会影响上一次排序的结果。</p>
+<ul>
+<li>定义增量序列，最后一次间隔都是1</li>
+</ul>
+<p><a href="https://imgchr.com/i/t7EUVU" target="_blank" rel="noopener"><img alt="t7EUVU.gif" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7EUVU.gif" data-src="https://s1.ax1x.com/2020/06/10/t7EUVU.gif"></a></p>
+<ul>
+<li>原始希尔排序算法：<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> D=N/<span class="number">2</span>;D><span class="number">0</span>;D/=<span class="number">2</span>) { <span class="comment">//定义增量序列</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> P=D;P<N;P++) { <span class="comment">//插入排序</span></span><br><span class="line">			ElementType tmp = A[P];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=P;i>=D&&A[i-D]>tmp; i-=D)</span><br><span class="line">				A[i] = A[i-D];</span><br><span class="line">			A[i] = tmp;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li>时间复杂度</li>
+</ul>
+<p>最优：$</p>
+<p>最坏：$T=O(N^2)$，</p>
+<p><strong>当增量序列元素之间并不互质时</strong>，原始希尔排序每一次增量排序都没有进行实质性操作，导致只有最后一次有效。例如：16：8，4，2，1。</p>
+<ul>
+<li><p>Hibbard增量序列：$D_k = 2^k-1 ，此时最坏情况：$O(N^(5/4))$</p>
+</li>
+<li><p>空间复杂度</p>
+</li>
+</ul>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>从A[i]到A[N-1]中寻找最小元，并将其位置献给MinPosition。</p>
+<p>再将此未排序部分的最小元换到有序部分的最后位置。<br><a href="https://imgchr.com/i/t7EyKx" target="_blank" rel="noopener"><img alt="t7EyKx.gif" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7EyKx.gif" data-src="https://s1.ax1x.com/2020/06/10/t7EyKx.gif"></a></p>
+<ul>
+<li><p>原始代码：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i<N;i++) {</span><br><span class="line">		<span class="keyword">int</span> MinPosition = ScanForMin(A,i,N<span class="number">-1</span>);<span class="comment">//寻找最小元</span></span><br><span class="line">		Swap(A[i], A[MinPosition])</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>时间复杂度</p>
+</li>
+</ul>
+<p>最坏：每一次排序都需要交换</p>
+<p>不管原始数组是否有序，时间复杂度都是$O(n^2)$，关键是快速找到最小元。</p>
+<ul>
+<li>空间复杂度<br>只定义了两个辅助变量且与n的大小无关，所以空间复杂度为O(1)</li>
+</ul>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>对选择排序的优化</p>
+<p>堆：完全二叉树且具有如下性质</p>
+<ul>
+<li>大顶堆：每个结点值都大于或等于其左右孩子结点的值</li>
+<li>小顶堆：每个结点值都小于或等于其左右孩子结点的值</li>
+</ul>
+<p><strong>左右孩子的结点下标为2i+1，2i+2</strong></p>
+<p>具体过程</p>
+<ul>
+<li>将无序序列构建成一个堆，根据升序降序需求选择大顶堆或小顶堆;</li>
+<li>将堆顶元素与末尾元素交换，将最大元素”沉”到数组末端;</li>
+<li>重新调整结构，使其满足堆定义，然后继续交换堆顶元素与当前末尾元素，反复执行调整+交换步骤，直到整个序列有序。</li>
+</ul>
+<p><img alt="3" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7kcS1.gif" data-src="https://s1.ax1x.com/2020/06/10/t7kcS1.gif"></p>
+<ul>
+<li><p>算法1：$O(nlogn)$，需要额外的O(N)空间，复制元素消耗时间</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Heap_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	BuildHeap(A); <span class="comment">//建立最小堆 O(N)</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i<N;i++)</span><br><span class="line">		tmpA[i] = DeleteMin(A);<span class="comment">//最小元存储 O(logN)</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i<N;i++)</span><br><span class="line">		A[i] = tmpA[i];<span class="comment">//又将存储的最小元都导回原数组 O(N)</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>合理算法：</strong>：调整为最大堆(升序)</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Heap_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=N/<span class="number">2</span>; i>=<span class="number">0</span>; i--)</span><br><span class="line">		PercDown(A, i, N); <span class="comment">//建立最大堆</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-1</span>; i><span class="number">0</span>; i--) {</span><br><span class="line">		Swap(&A[<span class="number">0</span>], &A[i]);</span><br><span class="line">		PercDown(A, <span class="number">0</span>, i);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>算法中的子方法：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调整大顶堆</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PercDown</span><span class="params">(ElementType A[], <span class="keyword">int</span> i, <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	<span class="keyword">int</span> temp = A[i];<span class="comment">//取出当前元素</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> k=i*<span class="number">2</span>+<span class="number">1</span>; k<length; k=k*<span class="number">2</span>+<span class="number">1</span>) {</span><br><span class="line">		<span class="keyword">if</span>(k+<span class="number">1</span><length && A[k]<A[k+<span class="number">1</span>]) </span><br><span class="line">			k++;<span class="comment">//左子结点小于右结点，k指向右子结点</span></span><br><span class="line">		<span class="keyword">if</span>(A[k]>temp) {<span class="comment">//子结点大于父节点，直接赋值给父节点</span></span><br><span class="line">			A[i] = A[k];</span><br><span class="line">			i = k;</span><br><span class="line">		} <span class="keyword">else</span> {</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	A[i] = temp;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//交换</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">(ElementType A[], <span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{</span><br><span class="line">	<span class="keyword">int</span> temp = A[a];</span><br><span class="line">	A[a] = A[b];</span><br><span class="line">	A[b] = temp;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p><strong>对有序子序列的归并</strong></p>
+<ul>
+<li>具体代码<br>核心交换<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* L:左边起始位置，R:右边起始位置，RightEnd:右边终点位置*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElementType A[], ElementType tempA[], <span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> RightEnd)</span> </span>{</span><br><span class="line">	<span class="keyword">int</span> LeftEnd = R - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> temp = L;</span><br><span class="line">	<span class="keyword">int</span> NumElements = RightEnd - L + <span class="number">1</span>;<span class="comment">//元素总个数</span></span><br><span class="line">	<span class="comment">//归并过程</span></span><br><span class="line">	<span class="keyword">while</span>(L<=LeftEnd&&R<=RightEnd) {</span><br><span class="line">		<span class="keyword">if</span>(A[L]<=A[R]) tempA[temp++] = A[L++];</span><br><span class="line">		<span class="keyword">else</span> tempA[temp++] = A[R++];</span><br><span class="line">	}</span><br><span class="line">	<span class="comment">//多余就直接拼接</span></span><br><span class="line">	<span class="keyword">while</span>(L<=LeftEnd)</span><br><span class="line">		tempA[temp++] = A[L++];</span><br><span class="line">	<span class="keyword">while</span>(R<=RightEnd)</span><br><span class="line">		tempA[temp++] = A[R++];</span><br><span class="line">	<span class="comment">//L已经被使用过了</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i<NumElements;i++,RightEnd--) {<span class="comment">//RightEnd未被使用</span></span><br><span class="line">		A[RightEnd] = tempA[RightEnd];</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+分而治之：递归：$T(N/2)+T(N/2)+O(N),T(N)=O(NlogN)$<br><img alt="4" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7AE0U.gif" data-src="https://s1.ax1x.com/2020/06/10/t7AE0U.gif"><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MSort</span><span class="params">(ElementType A[], ElementType tempA[], <span class="keyword">int</span> L, <span class="keyword">int</span> RightEnd)</span> </span>{</span><br><span class="line">	<span class="keyword">int</span> center;</span><br><span class="line">	<span class="keyword">if</span>(L<RightEnd) {</span><br><span class="line">		center = (L+RightEnd) /<span class="number">2</span>;</span><br><span class="line">		MSort(A,tempA,L,center);</span><br><span class="line">		MSort(A,tempA,center+<span class="number">1</span>,RightEnd);</span><br><span class="line">		Merge(A,tempA,L,center+<span class="number">1</span>,RightEnd);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	ElementType *tempA;</span><br><span class="line">	tempA = <span class="built_in">malloc</span>(N*<span class="keyword">sizeof</span>(ElementType));<span class="comment">//申请空间</span></span><br><span class="line">	<span class="keyword">if</span>(tempA!=<span class="literal">NULL</span>) {</span><br><span class="line">		MSort(A,tempA,<span class="number">0</span>,N<span class="number">-1</span>);</span><br><span class="line">		<span class="built_in">free</span>(tempA);</span><br><span class="line">	} <span class="keyword">else</span> {</span><br><span class="line">		ERROR(<span class="string">"空间不足"</span>);<span class="comment">//报错方法</span></span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+分而治之：非递归算法<br>并不需要开很多临时数组，只需要开一个临时数组，临时数组与原数组之间进行数据交换。<br><img alt="4" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7koYd.jpg" data-src="https://s1.ax1x.com/2020/06/10/t7koYd.jpg"></li>
+</ul>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_pass</span><span class="params">(ElementType A[], ElementType tempA[], <span class="keyword">int</span> N, <span class="keyword">int</span> length)</span> </span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i<=N<span class="number">-2</span>*length; i+= <span class="number">2</span>*length) </span><br><span class="line">		Merge1(A, tempA, i, i+length, i+<span class="number">2</span>*length<span class="number">-1</span>);<span class="comment">//不需要将tempA中元素导回A中，最后有序也是放在tempA中的</span></span><br><span class="line">	<span class="keyword">if</span>(i+length<N)</span><br><span class="line">		Merge1(A,tempA,i,i+length,N<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="comment">//最后只剩下一个子列</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j<N;j++) tempA[j] = A[j];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	ElementType *tempA;</span><br><span class="line">	tempA = <span class="built_in">malloc</span>(N*<span class="keyword">sizeof</span>(ElementType));</span><br><span class="line">	<span class="keyword">if</span>(tempA!=<span class="literal">NULL</span>) {</span><br><span class="line">		<span class="keyword">while</span>(length<N) {</span><br><span class="line">			Merge_pass(A,tempA,N,length);</span><br><span class="line">			length *= <span class="number">2</span>;</span><br><span class="line">			Merge_pass(tempA,A,N,length);<span class="comment">//确保最后A是有序的</span></span><br><span class="line">			length *= <span class="number">2</span>;</span><br><span class="line">		}</span><br><span class="line">		<span class="built_in">free</span>(tempA);</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">else</span> ERROR(<span class="string">"空间不足"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>优点：时间复杂度、稳定<br>缺点：空间不足</p>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>分而治之：<strong>从数组中挑选一个数作为主元</strong>，将原来的数组分成两部分：小于和大于。最后将左右两边放在一起<br><a href="https://imgchr.com/i/t7AO3R" target="_blank" rel="noopener"><img alt="t7AO3R.jpg" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7AO3R.jpg" data-src="https://s1.ax1x.com/2020/06/10/t7AO3R.jpg"></a></p>
+<ul>
+<li>选中元：取头、中、尾的中位数<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*选中元：*/</span></span><br><span class="line"><span class="function">ElementType <span class="title">Median3</span><span class="params">(ElementType A[], <span class="keyword">int</span> Left, <span class="keyword">int</span> Right)</span> </span>{</span><br><span class="line">	<span class="keyword">int</span> center = (Left + Right) /<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(A[Left]>A[center])</span><br><span class="line">		Swap(&A[Left],&A[center]);</span><br><span class="line">	<span class="keyword">if</span>(A[Left]>A[Right])</span><br><span class="line">		Swap(&A[Left],&A[Right]);</span><br><span class="line">	<span class="keyword">if</span>(A[center]>A[Right])</span><br><span class="line">		Swap(&A[center],&A[Right]);</span><br><span class="line">	<span class="comment">//得到了左边最小，右边最大</span></span><br><span class="line">	Swap(&A[center],&A[Right<span class="number">-1</span>]);<span class="comment">//最后一个已经最大了，所以，就把中位数放在了最大数的左边一位，最后需要比较的就是A[left+1]~A[Right-2]</span></span><br><span class="line">	<span class="keyword">return</span> A[Right<span class="number">-1</span>];</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li>子集划分</li>
+</ul>
+<p>当元素=pivot时：停下来交换</p>
+<ul>
+<li>小规模数据处理：先用递归，但是递归会影响性能，所以设置一个阈值cutoff值，当数据小于阈值时停止递归。</li>
+</ul>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归程序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quicksort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left, <span class="keyword">int</span> Right)</span> </span>{</span><br><span class="line">	<span class="keyword">if</span>(Cutoff<=Right-Left) {</span><br><span class="line">		<span class="keyword">int</span> Pivot = Median3(A, Left, Right);</span><br><span class="line">		<span class="keyword">int</span> i = Left; <span class="keyword">int</span> j = Right - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>() {</span><br><span class="line">			<span class="keyword">while</span>(A[++i]<Pivot) {}</span><br><span class="line">			<span class="keyword">while</span>(A[--j]<Pivot) {}</span><br><span class="line">			<span class="keyword">if</span>(i<j)</span><br><span class="line">				Swap(&A[i],&A[j]);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">		Swap(&A[i],&A[Right<span class="number">-1</span>]);<span class="comment">//把藏住的主元放在位置</span></span><br><span class="line">		Quicksort(A, Left, i<span class="number">-1</span>);</span><br><span class="line">		Quicksort(A, i+<span class="number">1</span>, Right);</span><br><span class="line">	} <span class="keyword">else</span> {</span><br><span class="line">		Insertion_Sort(A+Left, Right-Left+<span class="number">1</span>);<span class="comment">//小规模调用插入排序</span></span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//符合标准接口要求主接口</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quick_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span> </span>{</span><br><span class="line">	Quicksort(A, <span class="number">0</span>, N<span class="number">-1</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>最好：每次都是正好中分<br>最坏：每次取到的元素都是数组中最值</p>
+<ul>
+<li><p>时间复杂度<br>平均复杂度：$O(nlog2n)$</p>
+</li>
+<li><p>空间复杂度<br>平均空间复杂度$O(log2n$</p>
+</li>
+</ul>
+<h2 id="表排序"><a href="#表排序" class="headerlink" title="表排序"></a>表排序</h2><p><strong>间接排序</strong>：只移动指针而不移动元素</p>
+<p> 环的思想<br> 物理排序：取出一个元素至temp，空位作为华容道。<br>当<code>table[i]==</code>i时环结束</p>
+<p><img alt="1" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7kGJs.jpg" data-src="https://s1.ax1x.com/2020/06/10/t7kGJs.jpg"></p>
+<p>最好：初始即有序<br>最坏：有N/2个环，每个环只有两个元素，每个环都要操作三次</p>
+<p>$T=O(mN)$</p>
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>建立桶(相同的值放入对应的桶中)<br><img alt="t7EeDf.gif" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7EeDf.gif" data-src="https://s1.ax1x.com/2020/06/10/t7EeDf.gif"><br>时间复杂度：$T(N,M) = O(M+N)$<br><a href="https://imgchr.com/i/t7EJK0" target="_blank" rel="noopener"><img alt="t7EJK0.md.jpg" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7EJK0.md.jpg" data-src="https://s1.ax1x.com/2020/06/10/t7EJK0.md.jpg"></a></p>
+<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><p>处理整数基数/多关键字排序</p>
+<p>当桶排序中N<<M时，<strong>次位优先</strong>，比如数字还可以按照十位数、百位数来放入不同的桶中<br><a href="https://imgchr.com/i/t7A80O" target="_blank" rel="noopener"><img alt="t7A80O.jpg" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/10/t7A80O.jpg" data-src="https://s1.ax1x.com/2020/06/10/t7A80O.jpg"></a></p>
+<p>时间复杂度：$T=O(P(N+B))$，需要收集数</p>
+<h2 id="排序算法比较"><a href="#排序算法比较" class="headerlink" title="排序算法比较"></a>排序算法比较</h2><table>
+<thead>
+<tr>
+<th align="left">排序方法</th>
+<th align="center">平均时间复杂度</th>
+<th align="center">最坏情况时间复杂度</th>
+<th align="center">额外空间复杂度</th>
+<th align="center">稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">简单选择排序*</td>
+<td align="center">$O(N^2)$</td>
+<td align="center">$O(N^2)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td align="left">冒泡排序*</td>
+<td align="center">$O(N^2)$</td>
+<td align="center">$O(N^2)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td align="left">插入排序*</td>
+<td align="center">$O(N^2)$</td>
+<td align="center">$O(N^2)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td align="left">希尔排序</td>
+<td align="center">$O(N^d)$</td>
+<td align="center">$O(N^2)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td align="left">堆排序</td>
+<td align="center">$O(NlogN)$</td>
+<td align="center">$O(NlogN)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td align="left">快速排序</td>
+<td align="center">$O(NlogN)$</td>
+<td align="center">$O(N^2)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td align="left">归并排序</td>
+<td align="center">$O(NlogN)$</td>
+<td align="center">$O(NlogN)$</td>
+<td align="center">$O(N)$</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td align="left">基数排序</td>
+<td align="center">$O(P(N+B))$</td>
+<td align="center">$O(P(N+B))$</td>
+<td align="center">$O(N+B)$</td>
+<td align="center">Y</td>
+</tr>
+</tbody></table>
+<p>归并排序稳定快速但是需要空间N</p>
+<p>注：<code>*</code>标表示简单排序</p>
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><ol>
+<li>关键字序列T=(21,25,49,25<em>,16,08),写出快速排序算法的一趟实现过程<br>解答：|08|16|21|25</em>|49|25<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">21| |25|49|25*|16|08</span><br><span class="line">21|08|25|49|25*|16|</span><br><span class="line">21|08| |49|25*|16|25</span><br><span class="line">21|08|16|49|25*| |25</span><br><span class="line">21|08|16| |25*|49|25</span><br><span class="line"> |08|16|21|25*|49|25</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+
+                </div>
+            </section>
+        </article>
+    </div>
+
+    
+    <div style="height: 4vw;width: 100%"></div>
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">•</span>
+        
+        <a class="next-post" title="Fiddle--爬虫利器" href="/2020/06/07/Fiddle-%E7%88%AC%E8%99%AB%E5%88%A9%E5%99%A8/">
+            Fiddle--爬虫利器 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</main>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#博客内容"><span class="toc-text">博客内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时间复杂度下界"><span class="toc-text">时间复杂度下界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡排序"><span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入排序"><span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#希尔排序"><span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择排序"><span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆排序"><span class="toc-text">堆排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#归并排序"><span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速排序"><span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表排序"><span class="toc-text">表排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#桶排序"><span class="toc-text">桶排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基数排序"><span class="toc-text">基数排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序算法比较"><span class="toc-text">排序算法比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#练习题"><span class="toc-text">练习题</span></a></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://wx2.sbimg.cn/2020/06/06/76304928_p0.jpg)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">— 不羁 —</small>
+    <h3 class="read-next-card-header-title">Recent Posts</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2020/06/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/06/07/Fiddle-%E7%88%AC%E8%99%AB%E5%88%A9%E5%99%A8/">Fiddle--爬虫利器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/06/06/%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/">必先利其器</a>
+      </li>
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://wx2.sbimg.cn/2020/06/06/76304928_p0.jpg)">
+	<header class="read-next-card-header" style="padding-bottom: 20px">
+		<h3 class="read-next-card-header-title">Tag Cloud</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/scrapy/" style="font-size: 14px;">scrapy</a> <a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 14px;">写作</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 14px;">排序</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay subscribe-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://wx1.sbimg.cn/2020/06/06/_20200606194514-mask-transparent.png" alt="不羁">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="Search ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<section class="copyright">
+			<a href="/" title="不羁">不羁</a>
+			© 2020
+		</section>
+		<nav class="site-footer-nav">
+			
+            <a href="http://www.miitbeian.gov.cn/" title="湘ICP备20068037号" target="_blank" rel="noopener">湘ICP备20068037号</a>
+            <a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+            <a href="https://msxz.com/" title="toolQin" target="_blank" rel="noopener">toolQin</a>
+        </nav>
+    </div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="不羁">
+			
+                <img src="https://wx1.sbimg.cn/2020/06/06/_20200606194514-mask-transparent.png" alt="不羁 icon">
+			
+            <span>不羁</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">排序算法</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+
+
+<script src="/js/mix/post-lazy-local.min.js"></script>
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        verify: false,
+        notify: false,
+        appId: 'd2mGfgtTd8r0c2fV7mDcyzwD-gzGzoHsz',
+        appKey: 'mH7n8ljeiszX6vykYOSsjdp2',
+        placeholder: '大千世界，留下你的足迹！',
+        pageSize: 10,
+        avatar: 'mm',
+        visitor: true,
+    });
+</script>
+
+
+
+
+
+
+<script>searchFunc("/")</script>
+
+
+
+
+
+
+
+</body></html>
