@@ -19,16 +19,16 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>必先利其器 | 不羁</title>
+	<title>Python整理QQ消息记录 | 不羁</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 	<meta name="generator" content="hexo">
 	<meta name="author" content="tool阿琴">
-	<meta name="description" content="第三方软件">
+	<meta name="description" content="python的实际运用">
 
 	
-	<meta name="keywords" content="方便">
+	<meta name="keywords" content="python">
 	
 
 	
@@ -47,14 +47,14 @@
 
 	<meta property="og:site_name" content="不羁">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="必先利其器 | 不羁">
-	<meta property="og:description" content="第三方软件">
-	<meta property="og:url" content="http://yoursite.com/2020/06/06/%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/">
+	<meta property="og:title" content="Python整理QQ消息记录 | 不羁">
+	<meta property="og:description" content="python的实际运用">
+	<meta property="og:url" content="http://yoursite.com/2020/06/13/Python%E6%95%B4%E7%90%86QQ%E6%B6%88%E6%81%AF%E8%AE%B0%E5%BD%95/">
 
 	
-	<meta property="article:published_time" content="2020-06-06T22:06:00+08:00"> 
+	<meta property="article:published_time" content="2020-06-13T14:06:00+08:00"> 
 	<meta property="article:author" content="tool阿琴">
-	<meta property="article:published_first" content="不羁, /2020/06/06/%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/">
+	<meta property="article:published_first" content="不羁, /2020/06/13/Python%E6%95%B4%E7%90%86QQ%E6%B6%88%E6%81%AF%E8%AE%B0%E5%BD%95/">
 	
 </head>
 <body class="post-template">
@@ -137,175 +137,36 @@
     <div class="inner">
         <header class="post-full-header">
             <section class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2020-06-06T14:18:31.000Z" itemprop="datePublished">
-                    2020-06-6
+                <time class="post-full-meta-date" datetime="2020-06-13T06:30:40.000Z" itemprop="datePublished">
+                    2020-06-13
                 </time>
                 
                 <span class="date-divider">/</span>
                 
                 
             </section>
-            <h1 class="post-full-title">必先利其器</h1>
+            <h1 class="post-full-title">Python整理QQ消息记录</h1>
         </header>
         <article class="post-full ">
             
-            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/06/07/tg8G1x.jpg)">
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/06/13/tvZWVJ.jpg)">
             </figure>
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了记录所有我用过觉得好用的软件和软件以及APP，来自于论坛、博客以及公众号等。不提供下载。</p>
-<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ol>
-<li><p>Adobe 三件套：ps\pr\ae</p>
-</li>
-<li><p>AI 三件套：图片放大、智能抠图、视频清晰度</p>
-</li>
-<li><p>sublime Text3：notepad++的替代品</p>
-</li>
-<li><p>天若文字识别</p>
-</li>
-<li><p>格式工厂：各种格式，音像</p>
-</li>
-<li><p>Everything：快速检索</p>
-</li>
-<li><p>ScreenToGif：录制动图，修改gif文件，制作表情包利器</p>
-</li>
-<li><p>火绒安全：最好的杀毒软件</p>
-</li>
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里是利用Python进行消息分析的各种方面，不打算分开，每个模块都比较简单，所以就放在一起了</p>
+<h2 id="导出QQ群中某个人的消息"><a href="#导出QQ群中某个人的消息" class="headerlink" title="导出QQ群中某个人的消息"></a>导出QQ群中某个人的消息</h2><p>快考试了，但是有的课没有教材也没有讲义，只有老师在群里的消息记录。</p>
+<p>QQ群里导出消息记录，发现不能导出单独的联系人。</p>
+<p>通常解决方法<br>方案一：手机端查找消息记录->联系人->长截图<br>方案二：电脑端设置->消息管理器->搜索</p>
+<h3 id="优化步骤"><a href="#优化步骤" class="headerlink" title="优化步骤"></a>优化步骤<img alt="12" class="post-img b-lazy" href="https://img-blog.csdnimg.cn/20200612165046237.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NTI4Nw==,size_16,color_FFFFFF,t_70" data-src="https://img-blog.csdnimg.cn/20200612165046237.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NTI4Nw==,size_16,color_FFFFFF,t_70"></h3><p><img alt="1" class="post-img b-lazy" href="https://img-blog.csdnimg.cn/20200612165037212.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NTI4Nw==,size_16,color_FFFFFF,t_70" data-src="https://img-blog.csdnimg.cn/20200612165037212.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NTI4Nw==,size_16,color_FFFFFF,t_70"></p>
+<ol>
+<li>pc端导出聊天记录，文本格式(不可再导入的格式)，导出文本格式如下：<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">消息记录（此消息记录为文本格式，不支持重新导入）</span><br><span class="line"></span><br><span class="line">================================================================</span><br><span class="line">消息分组:我的群聊</span><br><span class="line">================================================================</span><br><span class="line">消息对象:qq群名</span><br><span class="line">================================================================</span><br><span class="line"></span><br><span class="line">日期 联系人(QQ号)：</span><br><span class="line">聊天内容</span><br><span class="line"></span><br><span class="line">日期 联系人(QQ号)：</span><br><span class="line">聊天内容</span><br></pre></td></tr></tbody></table></figure>
+利用python的正则表达式提取日期和联系人就可以了</li>
 </ol>
-<h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><h3 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h3><ol>
-<li><p><a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fedu.aliyun.com%2Fbackto%3Ftarget%3Dhttps%253A%2F%2Fedu.aliyun.com%2Fmy%2Fcourses%2Flearning%253Fspm%253D5176.11999222.1149155.26.28435e9bKRQAvB" target="_blank" rel="noopener">阿里大学</a></p>
-</li>
-<li><p><a href="https://www.coursera.org/?" target="_blank" rel="noopener">coursera</a></p>
-</li>
-<li><p><a href="https://www.imooc.com/" target="_blank" rel="noopener">imooc,程序员版</a></p>
-</li>
-<li><p><a href="https://www.liaoxuefeng.com/" target="_blank" rel="noopener">廖雪峰博客</a></p>
-</li>
-<li><p><a href="https://ilovefishc.com/" target="_blank" rel="noopener">鱼C工作室</a></p>
-</li>
-<li><p><i><a href="https://www.freecodecamp.org/" target="_blank" rel="noopener">freecodecamp</a></i></p>
-</li>
-<li><p><a href="https://learngitbranching.js.org/?NODEMO" target="_blank" rel="noopener">当你不理解Git时</a></p>
-</li>
-<li><p><a href="https://www.shiyanlou.com/" target="_blank" rel="noopener">可以实机操作的实验楼</a></p>
-</li>
-</ol>
-<h3 id="代码训练"><a href="#代码训练" class="headerlink" title="代码训练"></a>代码训练</h3><ol>
-<li><p><a href="https://leetcode-cn.com/" target="_blank" rel="noopener">leetcode</a></p>
-</li>
-<li><p><a href="http://codeforces.com/gyms" target="_blank" rel="noopener">codeforces</a></p>
-</li>
-<li><p><a href="http://acm.hdu.edu.cn/" target="_blank" rel="noopener">杭州电子题库</a></p>
-</li>
-<li><p><i><a href="https://www.codewars.com/" target="_blank" rel="noopener">codewars</a></i></p>
-</li>
-</ol>
-<h3 id="优质图床"><a href="#优质图床" class="headerlink" title="优质图床"></a>优质图床</h3><ol>
-<li><p><a href="https://sm.ms/" target="_blank" rel="noopener">SM</a></p>
-</li>
-<li><p><a href="https://imgchr.com/ambitiouscc" target="_blank" rel="noopener">路过图床</a></p>
-</li>
-<li><p><a href="https://sbimg.cn/" target="_blank" rel="noopener">公益图传</a></p>
-</li>
-</ol>
-<h3 id="财富密码"><a href="#财富密码" class="headerlink" title="财富密码"></a>财富密码</h3><ol>
-<li><p><a href="http://www.680.com/task/" target="_blank" rel="noopener">时间财富</a></p>
-</li>
-<li><p><a href="http://www.cninfo.com.cn/new/index" target="_blank" rel="noopener">股票市场:巨潮资讯</a></p>
-</li>
-<li><p><i><a href="https://www.fiverr.com/seller_onboarding/personal_info" target="_blank" rel="noopener">外国兼职网A</a></i></p>
-</li>
-</ol>
-<h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><ol>
-<li><p><a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">Python库文档</a></p>
-</li>
-<li><p><a href="http://www.cplusplus.com/reference/vector/vector/erase/" target="_blank" rel="noopener">C++Reference</a></p>
-</li>
-<li><p><a href="https://mvnrepository.com/" target="_blank" rel="noopener">Maven repository</a></p>
-</li>
-<li><p><a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank" rel="noopener">CSS代码关键</a></p>
-</li>
-<li><p><i><a href="https://www.deviantart.com/" target="_blank" rel="noopener">DeviantArt</a></i></p>
-</li>
-</ol>
-<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><ol>
-<li><p><a href="https://trace.moe/" target="_blank" rel="noopener">动漫中找图1</a></p>
-</li>
-<li><p><a href="http://waifu2x.udp.jp/" target="_blank" rel="noopener">动漫中找图2</a></p>
-</li>
-</ol>
-<h3 id="工具箱"><a href="#工具箱" class="headerlink" title="工具箱"></a>工具箱</h3><ol>
-<li><p><a href="https://tts.baidu.com/text2audio?tex=修改URL的信息即可=ZH&ctp=1&pdt=301&vol=9&rate=32&per=0" target="_blank" rel="noopener">文字转语音</a></p>
-</li>
-<li><p><a href="https://tools.miku.ac/" target="_blank" rel="noopener">MikuTools</a></p>
-</li>
-<li><p><a href="http://www.pansou.com/" target="_blank" rel="noopener">合法盘搜搜</a></p>
-</li>
-<li><p><a href="https://www.yishuzi.cn/" target="_blank" rel="noopener">艺术字生成器</a></p>
-</li>
-<li><p><a href="http://www.bejson.com/" target="_blank" rel="noopener">JSON格式化</a></p>
-</li>
-<li><p><a href="http://www.htmleaf.com/css3/css3donghua/" target="_blank" rel="noopener">CSS3插件库</a></p>
-</li>
-<li><p><a href="http://www.htmleaf.com/Demo/201604253389.html" target="_blank" rel="noopener">JQuery插件库</a></p>
-</li>
-<li><p><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener">MSDN,系统</a></p>
-</li>
-<li><p><a href="http://tool.chinaz.com/js.aspx" target="_blank" rel="noopener">加密JS</a></p>
-</li>
-<li><p><a href="https://link.hhtjim.com/" target="_blank" rel="noopener">外链转换</a></p>
-</li>
-<li><p><a href="http://ambitiouscc.ys168.com/" target="_blank" rel="noopener">持续更新的博主资源</a></p>
-</li>
-<li><p><a href="https://www.latexstudio.net/category/5.html" target="_blank" rel="noopener">Tex模板</a></p>
-</li>
-<li><p><i><a href="https://www.designevo.com/cn/logo-maker/" target="_blank" rel="noopener">Logo设计</a></i></p>
-</li>
-</ol>
-<h3 id="图片来源"><a href="#图片来源" class="headerlink" title="图片来源"></a>图片来源</h3><ol>
-<li><p><a href="https://m.pixivic.com/dailyRank?VNK=dbce9547" target="_blank" rel="noopener">P站分站A</a></p>
-</li>
-<li><p><a href="https://pixivic.com/?VNK=01c90e3c" target="_blank" rel="noopener">P站分站B</a></p>
-</li>
-<li><p><a href="https://pxhere.com/?__cf_chl_jschl_tk__=ad1f954cdffcebc19538bc861434e285698435e5-1591457306-0-AdqEuCFxeGOyKbbSD8RRC-t3oe1xPV-HAqwqtjAiGmjHEudDQ-FywHGbvC7pZSlV32RYXD9xS4gx1KlmZZDi4aD4cCTN_UTIOpt_AJV8m41R5b0WMKtVhAXBccVTo226rXf0znoaF977EWH3pQ7GDPD008RgKMQU8QJLbgRAlmdhKg0gBXx5dLzUUphHj7A-jiE_4QBnoMli-m2AAlG8t230GLjNEMgDawek9KE7tz8R-HSf54GrO3bgIZF5bzLZFDKtM7ZJR_v_oLThMKZjTkPF9_tfCqPmboPEgLsXztFC6XC7wY3yd8Sph413PNh9KfwfBOaw4QfJnn_m4J0ChdA" target="_blank" rel="noopener">免费照片素材</a></p>
-</li>
-<li><p><a href="https://588ku.com/" target="_blank" rel="noopener">设计图库</a></p>
-</li>
-<li><p><a href="https://www.piqsels.com/zh" target="_blank" rel="noopener">免版权图库</a></p>
-</li>
-<li><p><a href="http://pngimg.com/" target="_blank" rel="noopener">外国图库</a></p>
-</li>
-</ol>
-<h3 id="有趣的"><a href="#有趣的" class="headerlink" title="有趣的"></a>有趣的</h3><ol>
-<li><p><a href="http://haodongyushang.us/%E5%BD%A9%E8%99%B9%E5%B1%81/index.html" target="_blank" rel="noopener">彩虹屁</a></p>
-</li>
-<li><p><a href="https://suulnnka.github.io/BullshitGenerator/index.html?%E4%B8%BB%E9%A2%98=%E7%88%B1%E4%BD%A0&%E9%9A%8F%E6%9C%BA%E7%A7%8D%E5%AD%90=350503285" target="_blank" rel="noopener">文章生成器</a></p>
-</li>
-<li><p><a href="https://www.thiswaifudoesnotexist.net/" target="_blank" rel="noopener">随即故事</a></p>
-</li>
-</ol>
-<h3 id="且用且珍惜的API"><a href="#且用且珍惜的API" class="headerlink" title="且用且珍惜的API"></a>且用且珍惜的API</h3><ol>
-<li><a href="https://api.weibo.com/2/emotions.json?source=1362404091" target="_blank" rel="noopener">微博表情大全</a></li>
-</ol>
-<h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ol>
-<li><a href="https://www.cnblogs.com/kevin-lee123/p/9479802.html" target="_blank" rel="noopener">网路实时攻击网站整合</a></li>
-</ol>
-<h2 id="APP"><a href="#APP" class="headerlink" title="APP"></a>APP</h2><ol>
-<li><p>兔二工具集</p>
-</li>
-<li><p>VSCO最好的滤镜</p>
-</li>
-<li><p>AutoJS，将代码贯彻到安卓</p>
-</li>
-</ol>
-<h2 id="第三方整理"><a href="#第三方整理" class="headerlink" title="第三方整理"></a>第三方整理</h2><ol>
-<li><a href="https://shimo.im/sheets/QH9Rp9rgKdR8WkG8" target="_blank" rel="noopener">资源合计A</a></li>
-<li><a href="https://www.52pojie.cn/forum.php" target="_blank" rel="noopener">吾爱破解网</a></li>
-</ol>
-<p>路还很远，持续更新中。。。</p>
-<p><img alt="e" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/06/tgpQFs.jpg" data-src="https://s1.ax1x.com/2020/06/06/tgpQFs.jpg"></p>
-<p><a href="https://wenku.baidu.com/view/895f3a5077232f60ddcca13d.html" target="_blank" rel="noopener">文末福利!!!</a></p>
+<ul>
+<li>提取日期+联系人+聊天内容<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">fileName = <span class="string">"你的文件名.txt"</span></span><br><span class="line">result=[] <span class="comment"># 原始消息列表</span></span><br><span class="line">teacher=[] <span class="comment"># 指定人消息列表</span></span><br><span class="line"><span class="keyword">with</span> open(fileName,<span class="string">"r+"</span>,encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f: </span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        result.append(line) <span class="comment"># 先暂存列表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对列表进行过滤提取</span></span><br><span class="line"><span class="comment"># 日期 联系人(QQ号)： </span></span><br><span class="line"><span class="comment"># 指定为指定字符串，比如2020-(.*)?联系人(QQ号)，防止消息记录中出现类似信息，</span></span><br><span class="line"><span class="comment"># 1. 以防万一可以在for循环中if条件加上result[i+2]=='\n‘，不用担心越界，越界可以直接检查末尾信息</span></span><br><span class="line"><span class="comment"># 2. 同时也可以增减日期字符提取指定时间记录</span></span><br><span class="line">pattern = <span class="string">"2020-(.*)?XX\(12345678\)"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(result)):</span><br><span class="line">	r = re.findall(pattern,result[i])</span><br><span class="line">	<span class="keyword">if</span>(len(r)!=<span class="number">0</span>):</span><br><span class="line">		teacher.append(result[i]+result[i+<span class="number">1</span>])</span><br><span class="line">		</span><br><span class="line"><span class="comment"># 保存一下消息记录</span></span><br><span class="line"><span class="keyword">with</span> open((os.path.join((<span class="string">"XX消息记录.txt"</span>))), <span class="string">'w'</span>,encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,len(teacher)):</span><br><span class="line">        f.write(teacher[j])</span><br><span class="line">        f.write(<span class="string">'\n'</span>)</span><br></pre></td></tr></tbody></table></figure>
+复习去了</li>
+</ul>
 
                 </div>
             </section>
@@ -316,14 +177,10 @@
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="Fiddle--爬虫利器" href="/2020/06/07/Fiddle-%E7%88%AC%E8%99%AB%E5%88%A9%E5%99%A8/">
-            ← Fiddle--爬虫利器
-        </a>
-        
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="Wubba lubba dub dub·成长" href="/2020/06/06/Wubba-lubba-dub-dub%C2%B7%E6%88%90%E9%95%BF/">
-            Wubba lubba dub dub·成长 →
+        <a class="next-post" title="排序算法" href="/2020/06/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+            排序算法 →
         </a>
         
     </nav>
@@ -349,7 +206,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件"><span class="toc-text">软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网站"><span class="toc-text">网站</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#学习网站"><span class="toc-text">学习网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码训练"><span class="toc-text">代码训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优质图床"><span class="toc-text">优质图床</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#财富密码"><span class="toc-text">财富密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档"><span class="toc-text">文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具箱"><span class="toc-text">工具箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片来源"><span class="toc-text">图片来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有趣的"><span class="toc-text">有趣的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#且用且珍惜的API"><span class="toc-text">且用且珍惜的API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#博客"><span class="toc-text">博客</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APP"><span class="toc-text">APP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方整理"><span class="toc-text">第三方整理</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导出QQ群中某个人的消息"><span class="toc-text">导出QQ群中某个人的消息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优化步骤"><span class="toc-text">优化步骤</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -492,7 +349,7 @@
         </a>
     </div>
     <span class="floating-header-divider">—</span>
-    <div class="floating-header-title">必先利其器</div>
+    <div class="floating-header-title">Python整理QQ消息记录</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
