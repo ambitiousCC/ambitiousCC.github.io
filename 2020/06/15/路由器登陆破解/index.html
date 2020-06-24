@@ -239,17 +239,36 @@
 <td align="center">暂无</td>
 </tr>
 </tbody></table>
-<h2 id="破解过程"><a href="#破解过程" class="headerlink" title="破解过程"></a>破解过程</h2><p>根据博主学习状况不断更新进度</p>
+<blockquote>
+<p>现已经得到大部分路由器的初始密码</p>
+</blockquote>
+<h2 id="破解过程"><a href="#破解过程" class="headerlink" title="破解过程"></a>破解过程</h2><blockquote>
+<p>破解wifi密码，见下一篇博客</p>
+</blockquote>
+<p>根据博主学习状况不断更新进度</p>
 <ol>
 <li><p>能在浏览器进入登陆界面</p>
 </li>
-<li><p>得知店铺基本信息：店长号码，姓名。</p>
+<li><p>制作密码包暴力破解(已得到最全密码包和生成密码软件)</p>
 </li>
-<li><p>制作密码包暴力破解</p>
-</li>
-<li><p>python脚本：见爬虫源码这里和登陆一样，只是把登陆部分的密码替换成为生成规则数的方法并迭代执行。懂我意思吧</p>
+<li><p>python脚本：</p>
 </li>
 </ol>
+<ul>
+<li>方式一：<ul>
+<li>了解登录页面的处理逻辑–JS代码、html页面</li>
+<li>读取密码包赋值给input</li>
+<li>模拟页面点击事件提交</li>
+</ul>
+</li>
+<li>方式二：<ul>
+<li>抓包得到传送url</li>
+<li>不断模拟浏览器向API发送fake msg</li>
+<li>处理返回值</li>
+<li>如果返回非ERROR或者原页面的是破解成功</li>
+</ul>
+</li>
+</ul>
 
                 </div>
             </section>
@@ -259,6 +278,10 @@
     
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="Kali linuex: Settle WIFI password" href="/2020/06/24/Kali-linuex-Settle-WIFI-password/">
+            ← Kali linuex: Settle WIFI password
+        </a>
         
         <span class="prev-next-post">•</span>
         
@@ -321,6 +344,12 @@
       
       
       <li>
+        <a href="/2020/06/24/Kali-linuex-Settle-WIFI-password/">Kali linuex: Settle WIFI password</a>
+      </li>
+      
+      
+      
+      <li>
         <a href="/2020/06/15/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%99%BB%E9%99%86%E7%A0%B4%E8%A7%A3/">路由器登陆破解</a>
       </li>
       
@@ -331,10 +360,6 @@
       </li>
       
       
-      
-      <li>
-        <a href="/2020/06/13/Python%E6%95%B4%E7%90%86QQ%E6%B6%88%E6%81%AF%E8%AE%B0%E5%BD%95/">Python整理QQ消息记录</a>
-      </li>
       
       
       
@@ -366,7 +391,7 @@
 		<h3 class="read-next-card-header-title">Tag Cloud</h3>
 	</header>
 	<div class="read-next-card-content-ext">
-		<a href="/tags/scrapy/" style="font-size: 14px;">scrapy</a> <a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 14px;">写作</a> <a href="/tags/%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98/" style="font-size: 14px;">实际问题</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 14px;">排序</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 14px;">日常</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 14px;">程序设计</a>
+		<a href="/tags/scrapy/" style="font-size: 14px;">scrapy</a> <a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 14px;">写作</a> <a href="/tags/%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98/" style="font-size: 14px;">实际问题</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 14px;">排序</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 24px;">日常</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 14px;">程序设计</a>
 	</div>
 </article>
 
