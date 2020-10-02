@@ -19,16 +19,16 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Wubba lubba dub dub·成长 | 不羁</title>
+	<title>图像识别应用--车牌识别 | 不羁</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 	<meta name="generator" content="hexo">
 	<meta name="author" content="tool阿琴">
-	<meta name="description" content="感悟">
+	<meta name="description" content="车牌识别项目">
 
 	
-	<meta name="keywords" content="思考">
+	<meta name="keywords" content="图像处理">
 	
 
 	
@@ -47,14 +47,14 @@
 
 	<meta property="og:site_name" content="不羁">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="Wubba lubba dub dub·成长 | 不羁">
-	<meta property="og:description" content="感悟">
-	<meta property="og:url" content="http://yoursite.com/2020/06/06/Wubba-lubba-dub-dub%C2%B7%E6%88%90%E9%95%BF/">
+	<meta property="og:title" content="图像识别应用--车牌识别 | 不羁">
+	<meta property="og:description" content="车牌识别项目">
+	<meta property="og:url" content="http://yoursite.com/2020/09/29/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%BA%94%E7%94%A8-%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/">
 
 	
-	<meta property="article:published_time" content="2020-06-06T20:06:00+08:00"> 
+	<meta property="article:published_time" content="2020-09-29T20:09:00+08:00"> 
 	<meta property="article:author" content="tool阿琴">
-	<meta property="article:published_first" content="不羁, /2020/06/06/Wubba-lubba-dub-dub%C2%B7%E6%88%90%E9%95%BF/">
+	<meta property="article:published_first" content="不羁, /2020/09/29/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%BA%94%E7%94%A8-%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/">
 	
 </head>
 <body class="post-template">
@@ -141,30 +141,78 @@
     <div class="inner">
         <header class="post-full-header">
             <section class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2020-06-06T12:18:25.000Z" itemprop="datePublished">
-                    2020-06-6
+                <time class="post-full-meta-date" datetime="2020-09-29T12:35:10.000Z" itemprop="datePublished">
+                    2020-09-29
                 </time>
                 
                 <span class="date-divider">/</span>
                 
                 
             </section>
-            <h1 class="post-full-title">Wubba lubba dub dub·成长</h1>
+            <h1 class="post-full-title">图像识别应用--车牌识别</h1>
         </header>
-        <article class="post-full ">
-            
-            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/06/06/tcmnrn.jpg)">
-            </figure>
+        <article class="post-full no-image">
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <p>你想到的，什么时候能成为你能做到的。</p>
-<h2 id="启程"><a href="#启程" class="headerlink" title="启程"></a>启程</h2><p>命运不会偏袒谁，生活也不会偏爱谁，不论成败，努力前行。</p>
-<p>如今的你，不必着急让本就属于你的种子快点发芽，在给一些时间和期许，相遇时便是最美的花朵。</p>
-<p>希望你即使在大雨滂沱没有伞的日子里，也会记得生活中不期而至的温暖。</p>
-<p>愿你三冬暖，</p>
-<p>愿你春不寒。</p>
-<p><img alt="12" class="post-img b-lazy" href="https://s1.ax1x.com/2020/06/06/tcuCh8.jpg" data-src="https://s1.ax1x.com/2020/06/06/tcuCh8.jpg"></p>
+                    <h1 id="快速上手车牌识别"><a href="#快速上手车牌识别" class="headerlink" title="快速上手车牌识别"></a>快速上手车牌识别</h1><h2 id="简单了解图片灰度化方法"><a href="#简单了解图片灰度化方法" class="headerlink" title="简单了解图片灰度化方法"></a>简单了解图片灰度化方法</h2><p>？我们为啥要进行灰度化，那是彩色图像不利于进行图像识别，而灰度图像不仅仅压缩了图像，其只有一个数据矩阵方便机器进行数据分析。<br>我们都知道RGB由三色组成，red,green,blue，这三种颜色组成了其他一切颜色。而灰度图像色素为RGB(r,r,r)，其中r的取值为0~256，即灰度值共256个级别。<br>而我们灰度化处理的方法主要是三种：<br>（1）最大值法，就是让RGB中的值等于三个r值得最大的那个<br>（2）平均值法，让RGB得值等于三个r和得平均值<br>（3）加权平均法，根据重要性给三个组成颜色分配不同的权值，并且让三个r等于他们值得加权平均值，这里写一下计算过程：<br>$$<br>R=G=B=(W_rR+W_gG+W_bB)/3<br>$$<br>经过简单的搜索我们知道，人眼对三种色彩的敏感度G>R>B，当$W_r=0.299,W_g=0.587,W_b=0.114$时可以得到最合理的灰度图像<br>$$<br>灰度值TT=0.299R+0.587G+0.114B<br>$$</p>
+<h2 id="直方图均衡化方法介绍"><a href="#直方图均衡化方法介绍" class="headerlink" title="直方图均衡化方法介绍"></a>直方图均衡化方法介绍</h2><p>我们为什么要花直方图？这应该是你脑子中蹦出来的第一个疑问。<br>直方图时关于数字图像的数据，即数字图像中每一个灰度与其出现频度之间的统计关系，我们可以从图像上得到很多信息：</p>
+<ol>
+<li>图像的灰度范围</li>
+<li>每个灰度级的频度和灰度的分布</li>
+<li>整幅图像的平均明暗和对比度</li>
+</ol>
+<p>然后我们把原来灰度图像的数据直方图进行均衡化，均衡化是改变图像的直方图分布，让图像展现的数据分布均衡一点，不那么集中。<br>这样可以增加像素灰度值的动态范围，增强图像整体对比度的效果。<br>使用过p图的同学一定会知道，调整图像的对比度能够改变图像的亮度，在这里我们让图像整体更加清晰一些，从而减少图片中部分地方过明或过暗的情况。</p>
+<h3 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h3><ol>
+<li>r（均衡化图像灰度)计算公式如下，其中$f(x,y)，灰度范围f_min和f_max$，直方图正规化为$r\in[0,1]$<br>$$，L表示为图像灰度范围<br>r = \frac{f-f_{min}}{f_{max}-f_{min}} = \frac{f}{L}<br>$$</li>
+<li>new图各个位置概率计算公式，其中$n_k$表示灰度为$r_k$像素数目<br>$$<br>P_r(r_k)=\frac{n_k}{n}<br>$$</li>
+<li>灰度映射函数：<br>总概率不变<br>$$<br>P_s(s)ds=P_r(r)dr<br>$$</li>
+<li>直方图均衡化时$P_s(s)=1$，式子可以化为：<br>$$<br>ds=\frac{P_s(s)}{P_r{r}dr}=\frac{P_r(r)dr}{1}=P_r(r)dr<br>$$</li>
+<li>最后对ds积分得到s的函数：<br>$$<br>s=T(r)=\int{0}^{r}P_r(w)dw<br>$$</li>
+<li>s的离散化函数(离散以后方便计算)：<br>$$<br>s_k=T(r_k)=\sum_{j=0}^{k}P_r(r_j)=\sum_{j=0}^{k}\frac{n_j}{n}<br>$$</li>
+</ol>
+<p>最后简要描述一下算法的实现思路：</p>
+<ol>
+<li>从灰度值为0的地方开始进行渐进统计</li>
+<li>累加灰度级频度数</li>
+<li>频率乘以灰度总级数得出来该灰度变换后的灰度级。</li>
+<li>计算出的$255s_K$的值即为我们所求得到像素点，此时就可以通过新的像素点绘图得到灰度图像。</li>
+</ol>
+<p>记得补充代码</p>
+<h2 id="图像滤波去噪法"><a href="#图像滤波去噪法" class="headerlink" title="图像滤波去噪法"></a>图像滤波去噪法</h2><p>一幅原始图像在获取和传输的过程中会受到各种噪声的干扰，这些干扰使图像的质量下降。<br>我们要认识常见的噪声然后对症下药，典型的噪声有：</p>
+<ol>
+<li><strong>椒盐噪声</strong>，想象一下吃烧烤的时候撒调料，调料落在烧烤上的位置是随机的。而这里的噪声也可以这么理解，他们幅值基本相同，但是出现位置随机</li>
+<li><strong>随机噪声</strong>，这里的随机并不是说噪声分布的随机，而是针对的是噪声的幅度，即每一点都有噪声但是噪声的幅度值是随机的。</li>
+<li><strong>高斯噪声</strong>，这个难以理解，那是你需要先百度一下高斯分布，然后你发现高斯分布就是我们常说的正态分布，是不是就明白了很多呢，这个噪声幅度分布形状是呈正态分布的。注：常常由阻性元件内部产生</li>
+<li><strong>加性噪声和乘性噪声</strong>，这里需要理清楚的是噪声和信号之间的关系，前者图像与图像信号无关，其分布图像可以表示为：$f(x,y)=g(x,y)+n(x,y)$，是不是只有相加的关系呢。后者的图像则受到图像型号的影响，其分布为$f(x,y)=g(x,y)+n(x,y)g(x,y)$</li>
+<li><strong>量化噪声</strong>，这个噪声就很神奇，计算公式里面没有出现输入图像信号的影子，而其反映的是量化过程中存在的量化误差反映到接收端而产生的，噪声大小反映出了原图与显示图像的差异</li>
+</ol>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>在认识去噪方法之前，我们需要知道几个滤波原理才能明白去噪方法是怎么执行的</p>
+<ol>
+<li><p>通过部分区域的像素点集合计算出他们像素的均值，然后把均值赋值给当前的像素点，并作为处理后图像在该点的灰度值。这种方法称为均值滤波又称线性滤波，主要方法如前面所说为领域平均法。<br>$$<br>g(x,y)=\frac{1}{M}\sum\int f(x,y)<br>$$<br>其中，M为模板中包含当前像素点在内的像素总个数，s为选取的模板的点的集合</p>
+</li>
+<li><p>利用某一个像素的点的附近领域的点的灰度值的中值代替这个像素点的灰度值，很明显这种方法可以去掉某些突出的像素点，它被称为中值滤波。这种方法使图像更加平滑，所以也可以视为一种局部平滑技术。中值滤波在一定的条件下可以克服另一种方法即线性滤波的缺点（细节处理不好），对于滤除脉冲干扰（图像扫描噪点）是最有效的。中值滤波器处理连续图像窗函数时与线性滤波器工作方式相似，但是他不是加权运算。<br>取3x3函数窗计算(i,j)为中心函数窗像素中值过程：</p>
+<ol>
+<li>按强度值大小排列像素点</li>
+<li>选择排序像素集的中间值作为点(i,j)的新值<br>值得注意的是，我们能够想到，这种方法存在的意义就是为了处理某些不合理的极值点，而某些图像中本来就存在这样的点比如线与尖端，那些图像就不适用于这种方法。</li>
+</ol>
+</li>
+</ol>
+<p>经过中值滤波处理的图像，对于过亮和过暗的图像能够更好的区分背景和字符。</p>
+<ol start="3">
+<li>正太分布总是统计学里值得讨论的课题，而现实中的确存在大量服从正太分布的数据。正太分布又称为高斯分布，通过高斯函数的形状选择权值的线性平滑滤波器，称为高斯平滑滤波器，显然对于那些服从高斯分布的噪声的效果是显而易见的。<br>高斯滤波的重要性质是其特殊图像性质所决定的。</li>
+</ol>
+<p>对于方法的选择：最简单的方法肯定是线性滤波技术，拥有理论基础和易于实现等特征，大家都喜欢使用它。</p>
+<h3 id="去噪方法"><a href="#去噪方法" class="headerlink" title="去噪方法"></a>去噪方法</h3><p>进行图像滤波去噪，是为了改善图像质量并有利于提取图像的有效信息。<br>基于噪声频谱分布的规律和统计特征，图像的特点。常见的图像去噪方法有：</p>
+<ol>
+<li>空域合成法</li>
+<li>频域合成法</li>
+<li>最优合成法</li>
+</ol>
+<h2 id="实现算法步骤"><a href="#实现算法步骤" class="headerlink" title="实现算法步骤"></a>实现算法步骤</h2><ol>
+<li>加载图像信息</li>
+<li>计算出每个点的灰度值，并清除原来图像的图像数据</li>
+</ol>
 
                 </div>
             </section>
@@ -175,11 +223,15 @@
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="必先利其器" href="/2020/06/06/%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/">
-            ← 必先利其器
+        <a class="prev-post" title="AI学习数学基础" href="/2020/09/29/AI%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
+            ← AI学习数学基础
         </a>
         
         <span class="prev-next-post">•</span>
+        
+        <a class="next-post" title="学习linux并没有那么痛苦" href="/2020/09/27/%E5%AD%A6%E4%B9%A0linux%E5%B9%B6%E6%B2%A1%E6%9C%89%E9%82%A3%E4%B9%88%E7%97%9B%E8%8B%A6/">
+            学习linux并没有那么痛苦 →
+        </a>
         
     </nav>
 
@@ -204,7 +256,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#启程"><span class="toc-text">启程</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速上手车牌识别"><span class="toc-text">快速上手车牌识别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单了解图片灰度化方法"><span class="toc-text">简单了解图片灰度化方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直方图均衡化方法介绍"><span class="toc-text">直方图均衡化方法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算方法"><span class="toc-text">计算方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像滤波去噪法"><span class="toc-text">图像滤波去噪法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去噪方法"><span class="toc-text">去噪方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现算法步骤"><span class="toc-text">实现算法步骤</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -359,7 +411,7 @@
         </a>
     </div>
     <span class="floating-header-divider">—</span>
-    <div class="floating-header-title">Wubba lubba dub dub·成长</div>
+    <div class="floating-header-title">图像识别应用--车牌识别</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
