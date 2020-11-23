@@ -19,16 +19,16 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>学习linux并没有那么痛苦 | 不羁</title>
+	<title>2020数学建模校赛 | 不羁</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 	<meta name="generator" content="hexo">
 	<meta name="author" content="tool阿琴">
-	<meta name="description" content="持续更新的linxu学习笔记">
+	<meta name="description" content="记一次数学建模的过程和总结">
 
 	
-	<meta name="keywords" content="Linux">
+	<meta name="keywords" content="数学建模">
 	
 
 	
@@ -47,14 +47,14 @@
 
 	<meta property="og:site_name" content="不羁">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="学习linux并没有那么痛苦 | 不羁">
-	<meta property="og:description" content="持续更新的linxu学习笔记">
-	<meta property="og:url" content="http://yoursite.com/2020/09/27/%E5%AD%A6%E4%B9%A0linux%E5%B9%B6%E6%B2%A1%E6%9C%89%E9%82%A3%E4%B9%88%E7%97%9B%E8%8B%A6/">
+	<meta property="og:title" content="2020数学建模校赛 | 不羁">
+	<meta property="og:description" content="记一次数学建模的过程和总结">
+	<meta property="og:url" content="http://yoursite.com/2020/11/23/2020%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E8%B5%9B/">
 
 	
-	<meta property="article:published_time" content="2020-09-27T16:09:00+08:00"> 
+	<meta property="article:published_time" content="2020-11-23T11:11:00+08:00"> 
 	<meta property="article:author" content="tool阿琴">
-	<meta property="article:published_first" content="不羁, /2020/09/27/%E5%AD%A6%E4%B9%A0linux%E5%B9%B6%E6%B2%A1%E6%9C%89%E9%82%A3%E4%B9%88%E7%97%9B%E8%8B%A6/">
+	<meta property="article:published_first" content="不羁, /2020/11/23/2020%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E8%B5%9B/">
 	
 </head>
 <body class="post-template">
@@ -140,43 +140,64 @@
     <div class="inner">
         <header class="post-full-header">
             <section class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2020-09-27T08:20:59.000Z" itemprop="datePublished">
-                    2020-09-27
+                <time class="post-full-meta-date" datetime="2020-11-23T03:50:04.000Z" itemprop="datePublished">
+                    2020-11-23
                 </time>
                 
                 <span class="date-divider">/</span>
                 
                 
             </section>
-            <h1 class="post-full-title">学习linux并没有那么痛苦</h1>
+            <h1 class="post-full-title">2020数学建模校赛</h1>
         </header>
-        <article class="post-full no-image">
+        <article class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s3.ax1x.com/2020/11/23/DJeeEt.jpg)">
+            </figure>
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <h1 id="linux规划学习"><a href="#linux规划学习" class="headerlink" title="linux规划学习"></a>linux规划学习</h1><p>之前学习的linux比较杂而乱，基本是需要什么百度什么，系统的学习并没有总结出较好的笔记和规律。再上这门课的时候，我也不知道自己的基础是什么样子的。既然不知道底细，那么就从零开始快速学习吧</p>
-<h2 id="第一次使用linux的基本操作"><a href="#第一次使用linux的基本操作" class="headerlink" title="第一次使用linux的基本操作"></a>第一次使用linux的基本操作</h2><p>第一次登陆，我们不能总是使用root，我们需要一个账号相对安全的使用系统</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">useradd -m username <span class="comment"># 添加用户</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">passwd username <span class="comment"># 添加密码</span></span></span><br></pre></td></tr></tbody></table></figure>
-<p>接下来我们删除二手系统中的原账号</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果你已经切换到了新账号，你会发现你还没有足够的权限删除别人的账号，我们先切换回root账号</span></span><br><span class="line"><span class="variable">$su</span> root</span><br><span class="line"><span class="variable">$userdel</span> <span class="literal">-r</span> username</span><br></pre></td></tr></tbody></table></figure>
-<p>我们发现刚创建的账号的权利级别是很低的，要让我们的账号更加有权利，我们就需要把自己加入一个定义好的组</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$groups</span> <span class="comment"># 先查看所有的组别</span></span><br><span class="line"><span class="variable">$usermod</span> <span class="literal">-G</span> groupName username <span class="comment"># 添加组</span></span><br></pre></td></tr></tbody></table></figure>
-<p>基本的账号创建完毕了，我们就来检查一下自己的系统</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$uname</span> (<span class="literal">-a</span>) <span class="comment"># 查看系统信息，-a可以看到更多的内容</span></span><br></pre></td></tr></tbody></table></figure>
-<p>然后我们开始愉快的实验内容，以下命令为基本命令，在常规操作中使用（f,f1,f2等代表文件的路径）<br>实现效果|代码<br>:—|:–:<br>你想要看一下目录下面的文件有哪些|<code>ls -a包括隐藏文件/t按照时间排序/F查看哪些是文件夹/lg或者l都是看详细信息/迭代显示目录内容包括子文件夹中文件以及隐藏文件</code>或者<code>ll 简单看文件名</code><br>快速浏览文件内容|<code>cat f</code><br>复制不需要粘贴|<code>cp f1 f2</code><br>删除|<code>rm (-rf) f 括号内是强制删除</code><br>查看文件内容属性|<code>file f</code><br>查找目录中文件，你需要学一下正则表达式|<code>find path regx</code><br>实在不会了想看帮助|<code>man codename</code><br>查看进程|<code>ps</code><br>干掉进程|<code>kill p</code><br>安装卸载驱动器（虽然我没咋用过）|<code>mount</code>和<code>umount</code><br>查看日期和时间，还可以设置，注意系统时间可能是某自由国家的时间|<code>date</code><br>清屏|<code>clear</code></p>
-<p>好了，实验做完了，你发现你忘记安装图像化界面的同时发现追番又更新了。此时我们就安装一下图形化（如果你在安装时没有安装图形化洁面的话）<br>为了演示和验证，我特地删除了我的图形化界面（手动狗头）</p>
-<blockquote>
-<p>这是我删除的过程，了解一下就好</p>
-</blockquote>
-<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$yum</span> groupremove <span class="string">"X Window System"</span> <span class="literal">-y</span> <span class="comment"># X Window</span></span><br><span class="line"><span class="variable">$yum</span> groupremove <span class="string">"GNOME Desktop Environment"</span> <span class="literal">-y</span> <span class="comment">#  GNOME</span></span><br><span class="line"><span class="variable">$yum</span> groupremove <span class="string">"KDE (K Desktop Environment)"</span> <span class="comment"># KDE</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$vi</span> /etc/inittab</span><br><span class="line"><span class="comment"># Default runlevel. The runlevels used by RHS are: </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 0 - halt (Do NOT set initdefault to this)           --停机</span></span><br><span class="line"><span class="comment"># 1 - Single user mode            --单用户模式</span></span><br><span class="line"><span class="comment"># 2 - Multiuser, without NFS (The same as 3, if you do not havenetworking)           --多用户模式，不支持NFS</span></span><br><span class="line"><span class="comment"># 3 - Full multiuser mode           --多用户模式     </span></span><br><span class="line"><span class="comment"># 4 - unused           --没有使用 </span></span><br><span class="line"><span class="comment"># 5 - X11           --图形界面方式 </span></span><br><span class="line"><span class="comment"># 6 - reboot (Do NOT set initdefault to this)           --重新启动</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">id:<span class="number">5</span>:initdefault:      --默认运行等级是<span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#直接把5改成3就可以</span></span><br></pre></td></tr></tbody></table></figure>
-<p>安装图形化界面，想要登录管理员的账号，检查yum命令能否使用</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$yum</span> grouplist</span><br></pre></td></tr></tbody></table></figure>
-<p>安装”GNOME Desktop”</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$yum</span> grouplist <span class="string">"GNOME Desktop"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>安装完成以后呢，直接键入<code>startx</code>进入图形化界面。<br>然而我们要方便一点，每次开机都进入图形化界面的化，就需要特地设置一下了</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令行改为图形界面模式</span></span><br><span class="line"><span class="variable">$systemctl</span> <span class="built_in">set-default</span> graphical.target</span><br><span class="line"><span class="comment"># 图形界面模式改为命令行模式</span></span><br><span class="line"><span class="variable">$systemctl</span> <span class="built_in">set-default</span> multi<span class="literal">-user</span>.target</span><br><span class="line"><span class="comment"># 查看当前启动模式</span></span><br><span class="line"><span class="variable">$systemctl</span> <span class="built_in">get-default</span></span><br></pre></td></tr></tbody></table></figure>
-<p>至此，第一次上机的内容就结束了。</p>
-<h2 id="进一步学习Linux"><a href="#进一步学习Linux" class="headerlink" title="进一步学习Linux"></a>进一步学习Linux</h2><p>对我个人来说，我是一个不折不扣的颜控，我装了国产最新的优麒麟系统，真是不错哦，感觉非常丝滑<br><img alt="1" class="post-img b-lazy" href="https://s1.ax1x.com/2020/09/27/0FrsJA.png" data-src="https://s1.ax1x.com/2020/09/27/0FrsJA.png"></p>
+                    <h1 id="2020校赛🙌"><a href="#2020校赛🙌" class="headerlink" title="2020校赛🙌"></a>2020校赛🙌</h1><h2 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h2><p><a href="https://www.cnblogs.com/miaobo/p/12588586.html" target="_blank" rel="noopener">SIR</a></p>
+<p>搜集相关资料</p>
+<p>1、选择一个国家或地区，收集数据，建立新冠疫情的传播模型。<br>2、选择一个国家或地区，收集数据，建立相应模型分析疫情期间经济的变化。<br>3、对于你选定的国家或地区，根据当前疫情期间，不同行业受影响的程度不同，定量预测这些行业未来发展趋势如何？</p>
+<p>做A题，主要是做的过程中比较迷，建立了SIR模型之后，再建立了SIR-F，发现模型并不难，主要是其中的参数如何确定有点难，查了文献和参考论文发现他们都是用拟合的方式（通过政策分阶段）来确定，而我参考的文献确定参数的方式比较粗糙，没有那么强的科学依据。</p>
+<p>如果我想要分阶段来处理参数的话，就需要复现谋篇论文方式，而数据集又格外庞大，详细到令人发指，如果分析数据集我可能会枯掉。。</p>
+<p>最终是通过了matlab建立了一个SIR-F模型（感觉十分简单，直接用偏微分方程就可以求出），然后绘制的图好丑好丑。。。</p>
+<p>然后我在尝试向matlab中导入武汉的疫情数据集的时候，忘了方法，网上的方法一个个又格外复杂，心态就不是很好了。</p>
+<p>晚上发现了很好的导入方式，我觉得有时间我会继续完成这个部分，毕竟这个比较开放，而且我更喜欢大数据的比赛。</p>
+<h2 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h2><ol>
+<li>若给出每个节点的经纬度（见附件1），请考虑当只派出一个移动充电器时，如何规划移动充电器的充电路线才能最小化移动充电器在路上的能量消耗。</li>
+<li>若数据中心的位置可根据部署的传感器节点位置优化设计，在已知每个传感器节点的经纬度（见附件1）情况下，请考虑只派出一个移动充电器时，基于问题1的规划路线模型优化部署数据中心的位置使得移动充电器在路上的能量消耗最小。</li>
+<li>若给出每个节点的经纬度、每个节点的能量消耗速率（见附件2），并假设传感器的电量只有在高于f(mA)时才能正常工作，移动充电器的移动速度为v(m/s)、移动充电器的充电速率为r（mA/s），在只派出一个移动充电器的情况下，分别采用问题1）、问题2）规划出来的充电路线，每个传感器的电池的容量应至少是多大才能保证整个系统一直正常运行（即系统中每个传感器的电量都不会低于f（mA））？</li>
+</ol>
+<h2 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h2><p>（1）利用公交车载GPS数据与公交刷卡数据，构建模型，<strong>分析居民出行规律。</strong><br>（2）结合目标1的因素分析，最终提出<strong>市区公交站点设置</strong>的优化建议。</p>
+<p>数据：给出了坐标，时间和车牌，路线。需要时间排序、去重、提取某一路线的bus。</p>
+<h2 id="做题过程："><a href="#做题过程：" class="headerlink" title="做题过程："></a>做题过程：</h2><p>自己选择了A题，然后发现A题的工作十分繁琐而且不容易完成，所以决定先完成B题看能不能做好。<br>然后花了一下午的时间跑通了蚁群算法，也理解了这个算法的基本思想。</p>
+<p>然而时间有一半的时间都浪费了。。<br>主要浪费到了可视化的部分，我总是希望能够可以画的更好看。先是调了半天的PYthon程序，没有好好理解这个绘制的过程，以及缩放的过程。最后失败了。。</p>
+<p>继续找到了Pyecharts可视化工具，然而也是调了半天的颜色，和Geo的样式，比如如何更换地图的颜色，以及如何把数据点绘制到图中。最后成功了，但是并没有什么用，因为只能展示并不能够有其他的帮助</p>
+<p>这个坐标太细致了，坐落于山东大学？</p>
+<p>然后尝试使用python绘图，最后直接用一个人的的源码就可以很好的绘图。。。</p>
+<p>然后尝试编写蚁群算法，找到了一个牛逼的demo，然而并不能很好的可视化处理。</p>
+<p>继而发现不能直接计算GPS点与点的距离，这是坐标系的问题，然后先是是实现了python的算法，然后直接用matlab敲了一遍就通了。</p>
+<p>最后在博客上找到了蚁群算法的matlab实现，修改了各个变量，增加了可视化的标记点以及进度条。</p>
+<p>总算是把第一问的程序弄完了。</p>
+<p>参赛之后更新：<br>确定做B题之后（时间紧张），加大力度完成对算法的实现，剩下的时间里面，我完成了：</p>
+<ol>
+<li>对原算法的优化，包括：<ul>
+<li>其中的绘图与结果不一致的bug</li>
+<li>分离可视化与计算部分，方便做第二题</li>
+</ul>
+</li>
+<li>实现了第二问遍历的可视化进度条（感觉花里胡哨的）</li>
+<li>对第三问的公式进行变形，然后进行计算得出了结果</li>
+</ol>
+<p>代码部分总结，整个过程中代码部分并不是很难，其中涉及的知识点也不是很复杂。<br>最后到了写论文的时候了，写论文的是一个金融的同学，但是她一直没有开始，而且没有思路，这的确很难为她了。最后我们三个队友在最后一天在餐厅里面写到了11点。。。最后熬到了三点钟才最终把各种问题整齐。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这一次参赛，没有之前参赛那么紧张，但是相对的占用了很多时间。同时花太多精力在上面，对之前安排的任务和规划都有所遗忘，忘记整理每天的学习内容，打断了之前一直坚持的记录。同时也没有复习英语。</p>
+<p>但是经历这一次参赛以后，自己对matlab更熟练了，对找数据和一些解题思路也有了各种认识。如果有时间的话，还是挺想在参加一次美赛的（希望还有时间吧）</p>
+<p>建模在于积累，这一次的题目相对容易，主要是接触的大佬多了，就发现了很多之前没有发现的事情：校赛的题目的重复率很高，最离谱的是这次校赛题目和03国赛和20深圳杯如出一辙（模型思想一致），所以思路上很好找，主要是论文方面比较重要。</p>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>结束之后呢，好好休息了一下，毕竟是第一次完成了整个题目的算法实现，还是挺激动的。问了学长有没有更好的方法来完成第二问的遍历最优解的情况。学长说其他办法都有各自的缺点：无法保证找到最优解。</p>
+<p>过了两天，我对原来的第二问举证发现了新的思路：原来是不断遍历获取最小的点，但是我忽略了一个事实，就是计算过程中难免有误差存在，最终的点应该是只有一个的，所有每次运行的结果都是一样的。于是我想到存储其中某个阈值一下的所有点，然后打印这些点，如果这些点可以极大程度的复现最优路径，那就是最好的证明了。</p>
+<p>唉，还是没有想到这里，有点遗憾。。</p>
 
                 </div>
             </section>
@@ -187,14 +208,10 @@
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="图像识别应用--车牌识别" href="/2020/09/29/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%BA%94%E7%94%A8-%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/">
-            ← 图像识别应用--车牌识别
-        </a>
-        
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="Kali linuex: Settle WIFI password" href="/2020/06/24/Kali-linuex-Settle-WIFI-password/">
-            Kali linuex: Settle WIFI password →
+        <a class="next-post" title="AI学习数学基础" href="/2020/09/29/AI%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
+            AI学习数学基础 →
         </a>
         
     </nav>
@@ -220,7 +237,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux规划学习"><span class="toc-text">linux规划学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一次使用linux的基本操作"><span class="toc-text">第一次使用linux的基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进一步学习Linux"><span class="toc-text">进一步学习Linux</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2020校赛🙌"><span class="toc-text">2020校赛🙌</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A题"><span class="toc-text">A题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B题"><span class="toc-text">B题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C题"><span class="toc-text">C题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#做题过程："><span class="toc-text">做题过程：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后续"><span class="toc-text">后续</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -377,7 +394,7 @@
         </a>
     </div>
     <span class="floating-header-divider">—</span>
-    <div class="floating-header-title">学习linux并没有那么痛苦</div>
+    <div class="floating-header-title">2020数学建模校赛</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
